@@ -7,6 +7,7 @@ import com.example.weatherapp.domain.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -17,7 +18,7 @@ class WeatherViewModel @Inject constructor(
 ): ViewModel() {
 
     private var _state = MutableStateFlow(WeatherState())
-    val state = _state.asStateFlow()
+    val state: StateFlow<WeatherState> = _state
 
     fun loadWeatherInfo() {
         viewModelScope.launch {
