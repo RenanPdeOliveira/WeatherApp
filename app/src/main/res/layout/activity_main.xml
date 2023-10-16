@@ -48,9 +48,9 @@
 
             <ImageView
                 android:id="@+id/imageViewIcon"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_marginTop="30dp"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_marginTop="20dp"
                 android:src="@drawable/ic_sunny"
                 app:layout_constraintBottom_toTopOf="@+id/textViewTemperature"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -63,7 +63,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:textColor="@color/white"
-                android:textSize="32sp"
+                android:textSize="50sp"
                 app:layout_constraintBottom_toTopOf="@+id/textViewDailyDescription"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -76,20 +76,18 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:textColor="@color/white"
-                android:textSize="22sp"
+                android:textSize="24sp"
                 app:layout_constraintBottom_toTopOf="@+id/linearLayout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewTemperature"
                 tools:text="Sunny" />
 
-            <LinearLayout
+            <RelativeLayout
                 android:id="@+id/linearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
-                android:gravity="center"
-                android:orientation="horizontal"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -97,52 +95,63 @@
 
                 <ImageView
                     android:id="@+id/imageViewPressure"
-                    android:layout_width="30dp"
+                    android:layout_width="40dp"
                     android:layout_height="30dp"
-                    android:src="@drawable/ic_pressure" />
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_pressure"
+                    app:tint="@color/white" />
 
                 <TextView
                     android:id="@+id/textViewPressureNum"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="4dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="5dp"
+                    android:layout_toEndOf="@+id/imageViewPressure"
                     android:textColor="@color/white"
                     tools:text="1000" />
 
                 <ImageView
                     android:id="@+id/imageViewHumidity"
-                    android:layout_width="30dp"
+                    android:layout_width="20dp"
                     android:layout_height="30dp"
-                    android:layout_marginStart="38dp"
-                    android:src="@drawable/ic_drop" />
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_drop"
+                    app:tint="@color/white" />
 
                 <TextView
                     android:id="@+id/textViewHumidityNum"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="4dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="5dp"
+                    android:layout_toEndOf="@+id/imageViewHumidity"
                     android:textColor="@color/white"
                     tools:text="10%" />
 
                 <ImageView
                     android:id="@+id/imageViewWindSpeed"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginStart="38dp"
-                    android:src="@drawable/ic_wind" />
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@+id/textViewWindSpeedNum"
+                    android:src="@drawable/ic_wind"
+                    app:tint="@color/white" />
 
                 <TextView
                     android:id="@+id/textViewWindSpeedNum"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="4dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="5dp"
                     android:textColor="@color/white"
                     tools:text="10" />
 
-            </LinearLayout>
+            </RelativeLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -170,7 +179,7 @@
                 android:layout_marginBottom="8dp"
                 android:text="Today"
                 android:textColor="@color/white"
-                android:textSize="12sp" />
+                android:textSize="18sp" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"
