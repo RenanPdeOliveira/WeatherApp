@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.weatherapp.domain.repository.WeatherRepository
 import com.example.weatherapp.domain.util.Resource
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -22,7 +23,6 @@ class WeatherViewModel @Inject constructor(
 
     fun loadWeatherInfo() {
         viewModelScope.launch {
-            delay(500L)
             _state.value = WeatherState(
                 isLoading = true,
                 error = null
