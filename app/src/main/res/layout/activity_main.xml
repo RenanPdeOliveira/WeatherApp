@@ -11,15 +11,14 @@
         android:id="@+id/searchBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="visible"
-        android:backgroundTint="@color/darkBlue">
+        android:backgroundTint="@color/darkBlue"
+        android:visibility="visible">
 
         <com.google.android.material.search.SearchBar
             android:id="@+id/searchBar"
+            style="@style/searchBarStyle"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/deepBlue"
-            android:hint="Type a city name" />
+            android:layout_height="wrap_content" />
 
     </com.google.android.material.appbar.AppBarLayout>
 

@@ -29,9 +29,10 @@ class WeatherViewModel @Inject constructor(
     val cityState = City(city = state.value.city, lat = state.value.lat, long = state.value.long)
 
     private var _searchBar = MutableStateFlow("")
+    var searchBar = _searchBar.asStateFlow()
 
     private var _listOfCities = MutableStateFlow(cities)
-    val listOfCities = _searchBar.combine(_listOfCities) { text, cities ->
+    val listOfCities = searchBar.combine(_listOfCities) { text, cities ->
         if (text.isBlank()) {
             cities
         } else {

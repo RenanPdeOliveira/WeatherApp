@@ -4,16 +4,17 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
-import androidx.appcompat.widget.SearchView
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import coil.load
+import com.example.weatherapp.R
 import com.example.weatherapp.databinding.ActivityMainBinding
 import com.example.weatherapp.domain.cities.City
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import java.time.format.DateTimeFormatter
 
@@ -30,7 +31,6 @@ class MainActivity : AppCompatActivity() {
         installSplashScreen()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         viewModel.loadWeatherInfo(city = viewModel.cityState)
 
         lifecycleScope.launch {
@@ -56,11 +56,16 @@ class MainActivity : AppCompatActivity() {
                         binding.searchBarLayout.visibility = View.GONE
                         binding.progressBarLoading.visibility = View.GONE
                         binding.linearLayoutEmptyState.visibility = View.VISIBLE
-                        Snackbar.make(binding.root, "There is no internet connection!", Snackbar.LENGTH_SHORT).show()
+                        Snackbar.make(
+                            binding.root,
+                            "There is no internet connection!",
+                            Snackbar.LENGTH_SHORT
+                        ).show()
                     }
                     state.weatherInfo?.currentlyWeatherData?.let { data ->
                         binding.textViewCityName.text = state.city
-                        binding.textViewHour.text = "Today ${data.time.format(DateTimeFormatter.ofPattern("HH:mm"))}"
+                        binding.textViewHour.text =
+                            "Today ${data.time.format(DateTimeFormatter.ofPattern("HH:mm"))}"
                         binding.imageViewIcon.load(data.weatherType.icon)
                         binding.textViewTemperature.text = "${data.temperature}ºC"
                         binding.textViewDailyDescription.text = data.weatherType.description
