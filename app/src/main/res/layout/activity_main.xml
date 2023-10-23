@@ -50,13 +50,9 @@
             android:orientation="vertical">
 
             <androidx.cardview.widget.CardView
+                style="@style/cardViewMain"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginHorizontal="16dp"
-                android:backgroundTint="@color/deepBlue"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="4dp">
+                android:layout_height="wrap_content">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -86,11 +82,11 @@
                         android:layout_width="200dp"
                         android:layout_height="200dp"
                         android:layout_marginTop="20dp"
-                        android:src="@drawable/ic_sunny"
                         app:layout_constraintBottom_toTopOf="@+id/textViewTemperature"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:src="@drawable/ic_sunny" />
 
                     <TextView
                         android:id="@+id/textViewTemperature"
@@ -193,13 +189,9 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                style="@style/cardViewForecast"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="16dp"
-                android:backgroundTint="@color/deepBlue"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="4dp">
+                android:layout_height="wrap_content">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -212,12 +204,12 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:layout_marginBottom="8dp"
-                        android:text="Today"
+                        android:text="@string/text_view_today_forecast"
                         android:textColor="@color/white"
                         android:textSize="18sp" />
 
                     <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/recyclerView"
+                        android:id="@+id/recyclerViewForecast"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
@@ -249,7 +241,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
-            android:text="Could not load weather data. Make sure to enable internet!"
+            android:text="@string/text_view_empty_state_description"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="18sp" />
@@ -260,7 +252,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:backgroundTint="@color/deepBlue"
-            android:text="Try again"
+            android:text="@string/button_empty_state"
             android:textColor="@color/white" />
 
     </LinearLayout>

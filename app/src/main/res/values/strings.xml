@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">WeatherApp</string>
     <string name="search_bar_hint">Search city</string>
+    <string name="text_view_today_forecast">Today</string>
+    <string name="text_view_empty_state_description">Could not load weather data. Make sure to enable internet!</string>
+    <string name="button_empty_state">Try again</string>
 </resources>
