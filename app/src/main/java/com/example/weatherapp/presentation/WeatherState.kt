@@ -6,7 +6,7 @@ data class WeatherState(
     val weatherInfo: WeatherInfo? = null,
     val isLoading: Boolean = false,
     val error: String? = null,
-    val city: String = "São Paulo",
-    val lat: String = "-23.55",
-    val long: String = "-46.6333"
+    var city: String = "São Paulo",
+    var lat: String = "-23.55",
+    var long: String = "-46.6333"
 )
