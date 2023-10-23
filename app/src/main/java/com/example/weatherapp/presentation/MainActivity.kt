@@ -74,7 +74,7 @@ class MainActivity : AppCompatActivity() {
                         binding.textViewWindSpeedNum.text = "${data.windSpeed}km/h"
                     }
                     state.weatherInfo?.weatherDataPerDay?.get(0)?.let { list ->
-                        binding.recyclerView.adapter = adapter
+                        binding.recyclerViewForecast.adapter = adapter
                         adapter.submitList(list)
                     }
                     binding.buttonTryAgain.setOnClickListener {
